@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work - Davianxa Portfolio</title>
+<style>
+  body {
+    background-color: #fff;
+    color: #222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2rem;
+  }
+  h1 {
+    text-align: center;
+    color: #5bc0ff;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+  .videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 1.5rem;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+  .video-item {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(91 192 255 / 0.3);
+    overflow: hidden;
+  }
+  iframe {
+    width: 100%;
+    height: 180px;
+    border: none;
+    display: block;
+  }
+  .desc {
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    color: #555;
+    background-color: #f0faff;
+  }
+</style>
+</head>
+<body>
+  <h1>My Video Projects</h1>
+  <div class="videos">
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" 
+        title="Project EXE Style Edit" allowfullscreen></iframe>
+      <div class="desc">Project EXE Style Edit with dynamic transitions</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/3JWTaaS7LdU" 
+        title="Project Short Form Video" allowfullscreen></iframe>
+      <div class="desc">Engaging short-form content editing</div>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" 
+        title="Project Cinematic Cut" allowfullscreen></iframe>
+      <div class="desc">Cinematic video cut with color grading</div>
+    </div>
+  </div>
+</body>
+</html>
