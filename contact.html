@@ -1,47 +1,199 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contact Me - Davianxa</title>
+<title>Contact Me - Bangbear</title>
 <style>
   body {
-    background-color: #fff;
-    color: #222;
+    margin: 0;
+    padding: 4vw; /* lebih lega biar proporsional */
+    min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 2rem;
-    max-width: 480px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+    background: radial-gradient(ellipse at bottom, #0a0a0a 0%, #030617 100%);
   }
+
+  canvas#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(2vh); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 🧍 Foto profil super besar */
+  .profile {
+    width: clamp(160px, 24vw, 360px);
+    height: clamp(160px, 24vw, 360px);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2vw;
+    border: 0.5vw solid #5bc0ff;
+    box-shadow: 0 0 2.2vw #5bc0ff80;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .profile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 3vw #5bc0ffff;
+  }
+
+  /* 📝 Judul */
   h1 {
-    text-align: center;
     color: #5bc0ff;
-    margin-bottom: 2rem;
+    margin: 2vw 0 3vw 0;
     font-weight: 700;
+    font-size: clamp(2rem, 4.5vw, 5rem);
+    text-shadow: 0 0 1vw #5bc0ff80;
   }
+
+  /* 📋 Daftar kontak */
   ul {
     list-style: none;
     padding: 0;
+    margin-top: 2vw;
   }
+
   li {
-    margin-bottom: 1.4rem;
-    font-size: 1.3rem;
+    margin-bottom: 3vw;
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    transition: transform 0.25s ease;
   }
+
+  li:hover { transform: scale(1.07); }
+
   a {
-    color: #5bc0ff;
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
   }
-  a:hover {
-    text-decoration: underline;
+
+  /* 🌈 Efek warna logo & teks */
+  .discord:hover a { color: #8f9aff; text-shadow: 0 0 1vw #5865F2; }
+  .instagram:hover a { color: #ff7ab0; text-shadow: 0 0 1vw #E1306C; }
+  .tiktok:hover a { color: #8ef8ff; text-shadow: 0 0 1vw #69C9D0; }
+
+  /* 🎨 Ikon sosial media */
+  .icon {
+    width: clamp(48px, 5vw, 80px);
+    height: clamp(48px, 5vw, 80px);
+    border-radius: 50%;
+    transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
   }
+
+  .discord .icon {
+    filter: invert(61%) sepia(85%) saturate(516%) hue-rotate(202deg) brightness(98%) contrast(97%);
+  }
+  .discord:hover .icon { transform: scale(1.2); box-shadow: 0 0 1.2vw #5865F2; }
+
+  .instagram .icon {
+    filter: invert(44%) sepia(64%) saturate(4164%) hue-rotate(320deg) brightness(92%) contrast(93%);
+  }
+  .instagram:hover .icon { transform: scale(1.2); box-shadow: 0 0 1.2vw #E1306C; }
+
+  .tiktok .icon {
+    filter: invert(73%) sepia(31%) saturate(1946%) hue-rotate(148deg) brightness(100%) contrast(94%);
+  }
+  .tiktok:hover .icon { transform: scale(1.2); box-shadow: 0 0 1.2vw #69C9D0; }
 </style>
+
 </head>
 <body>
+
+  <canvas id="stars"></canvas>
+
+  <img src="cid kagenou.png" alt="Profile" class="profile" />
   <h1>Contact Me</h1>
+
   <ul>
-    <li>Discord: <a href="https://discordapp.com/users/davianxa" target="_blank" rel="noopener noreferrer">davianxa</a></li>
-    <li>Instagram: <a href="https://www.instagram.com/dafiprananda" target="_blank" rel="noopener noreferrer">@dafiprananda</a></li>
-    <li>Email: <a href="mailto:dafiprananda@example.com">dafiprananda@example.com</a></li>
+    <li class="discord">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" class="icon" alt="Discord" />
+      <a href="https://discordapp.com/users/bang_beart" target="_blank">bangbeart</a>
+    </li>
+    <li class="instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" class="icon" alt="Instagram" />
+      <a href="https://www.instagram.com/be4ruu?igsh=MXF6ZWNtbDRwcW8ybQ==" target="_blank">@be4ruu</a>
+    </li>
+    <li class="tiktok">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" class="icon" alt="TikTok" />
+      <a href="https://www.tiktok.com/@bearrrtoo" target="_blank">@bearrrtoo</a>
+    </li>
   </ul>
+
+  <script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.8,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${200 + Math.random()*60}, 80%, ${60 + Math.random()*30}%)`
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const gradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 2, 0,
+        canvas.width / 2, canvas.height / 2, canvas.width / 1.5
+      );
+      gradient.addColorStop(0, 'rgba(40,70,130,0.4)');
+      gradient.addColorStop(1, 'rgba(0,0,20,0.8)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.shadowColor = star.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+
+        star.x += star.speedX;
+        star.y += star.speedY;
+
+        if (star.x < 0 || star.x > canvas.width) star.speedX *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.speedY *= -1;
+      }
+
+      requestAnimationFrame(drawStars);
+    }
+
+    drawStars();
+  </script>
+
 </body>
 </html>

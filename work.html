@@ -3,64 +3,213 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Work - Davianxa Portfolio</title>
+<title>Work - Bangbear</title>
 <style>
   body {
-    background-color: #fff;
-    color: #222;
+    margin: 0;
+    padding: 4vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 2rem;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    background: radial-gradient(ellipse at bottom, #0a0a0a 0%, #030617 100%);
+    animation: fadeIn 1s ease-in-out;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  h1 {
-    text-align: center;
-    color: #5bc0ff;
-    margin-bottom: 2rem;
-    font-weight: 700;
-  }
-  .videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 1.5rem;
-    max-width: 940px;
-    margin: 0 auto;
-  }
-  .video-item {
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgb(91 192 255 / 0.3);
-    overflow: hidden;
-  }
-  iframe {
+
+  canvas#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
     width: 100%;
-    height: 180px;
-    border: none;
-    display: block;
+    height: 100%;
   }
-  .desc {
-    padding: 0.7rem 1rem;
-    font-weight: 600;
-    color: #555;
-    background-color: #f0faff;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(2vh); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .profile {
+    width: clamp(160px, 24vw, 320px);
+    height: clamp(160px, 24vw, 320px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.5vw solid #5bc0ff;
+    box-shadow: 0 0 2vw #5bc0ff80;
+    margin: 2vw 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .profile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 3vw #5bc0ffff;
+  }
+
+  main {
+    text-align: center;
+    max-width: 800px;
+    z-index: 1;
+  }
+
+  main h1 {
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    margin-bottom: 1.5rem;
+    color: #5bc0ff;
+    text-shadow: 0 0 1vw #5bc0ff80;
+  }
+
+  main p {
+    line-height: 1.8;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    color: #ccc;
+    margin-bottom: 3vw;
+  }
+
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 5vw;
+  }
+
+  .project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    width: clamp(280px, 45vw, 420px);
+    text-align: left;
+    border: 2px solid #5bc0ff55;
+    box-shadow: 0 0 15px #5bc0ff33;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #5bc0ff99;
+  }
+
+  .project-card h2 {
+    color: #5bc0ff;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    color: #ddd;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  nav {
+    margin: 4rem 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  nav button {
+    background: #5bc0ff;
+    border: none;
+    border-radius: 35px;
+    padding: 18px 50px;
+    color: #121212;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #5bc0ffaa;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.25s ease;
+  }
+
+  nav button:hover {
+    background: #40a8ff;
+    box-shadow: 0 0 30px #40a8ffcc;
+    transform: scale(1.07);
   }
 </style>
 </head>
 <body>
-  <h1>My Video Projects</h1>
-  <div class="videos">
-    <div class="video-item">
-      <iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" 
-        title="Project EXE Style Edit" allowfullscreen></iframe>
-      <div class="desc">Project EXE Style Edit with dynamic transitions</div>
+
+  <canvas id="stars"></canvas>
+  <img src="cid kagenou.png" alt="Profile" class="profile" />
+
+  <main>
+    <h1>My Projects</h1>
+    <p>Choose your category below to explore my editing works:</p>
+
+    <div class="projects">
+      <div class="project-card" onclick="window.location.href='long-video.html'">
+        <h2>🎬 Long Video</h2>
+      </div>
+
+      <div class="project-card" onclick="window.location.href='short-video.html'">
+        <h2>⚡ Short Video</h2>
+      </div>
     </div>
-    <div class="video-item">
-      <iframe src="https://www.youtube.com/embed/3JWTaaS7LdU" 
-        title="Project Short Form Video" allowfullscreen></iframe>
-      <div class="desc">Engaging short-form content editing</div>
-    </div>
-    <div class="video-item">
-      <iframe src="https://www.youtube.com/embed/5qap5aO4i9A" 
-        title="Project Cinematic Cut" allowfullscreen></iframe>
-      <div class="desc">Cinematic video cut with color grading</div>
-    </div>
-  </div>
+  </main>
+
+  <nav>
+    <button onclick="window.location.href='index.html'">BACK TO HOME</button>
+    <button onclick="window.location.href='contact.html'">CONTACT ME</button>
+  </nav>
+
+  <script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.8,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        color: `hsl(${200 + Math.random()*60}, 80%, ${60 + Math.random()*30}%)`
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const gradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 2, 0,
+        canvas.width / 2, canvas.height / 2, canvas.width / 1.5
+      );
+      gradient.addColorStop(0, 'rgba(40,70,130,0.4)');
+      gradient.addColorStop(1, 'rgba(0,0,20,0.9)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.shadowColor = star.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        star.x += star.speedX;
+        star.y += star.speedY;
+        if (star.x < 0 || star.x > canvas.width) star.speedX *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.speedY *= -1;
+      }
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+  </script>
 </body>
 </html>

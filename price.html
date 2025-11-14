@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bangbear Card</title>
+<title>Price List - Bangbear</title>
 <style>
   body {
     margin: 0;
@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 010vh;
+    min-height: 100vh;
     overflow-y: auto;
     position: relative;
     background: radial-gradient(ellipse at bottom, #0a0a0a 0%, #030617 100%);
@@ -35,80 +35,80 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* 🧍 Foto profil */
-  .profile-container {
-    margin-top: 5vh;
-    width: clamp(220px, 28vw, 380px);
-    height: clamp(220px, 28vw, 380px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .profile {
-    width: 85%;
-    height: 85%;
-    border-radius: 50%;
-    object-fit: cover;
-    animation: spinProfile 20s linear infinite;
-  }
-
-  @keyframes spinProfile {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  main {
-    text-align: center;
-    max-width: 700px;
-    z-index: 1;
-    margin-top: 3vh;
-  }
-
-  main h1 {
-    font-weight: 700;
+  h1 {
+    color: #5bc0ff;
     font-size: clamp(2rem, 4vw, 4.5rem);
     margin-bottom: 1rem;
-    color: #5bc0ff;
     text-shadow: 0 0 1vw #5bc0ff80;
   }
 
-  main p {
-    line-height: 1.8;
-    font-size: clamp(1rem, 2.5vw, 2.5rem);
+  p {
     color: #ccc;
-    margin: 0 auto 3vw auto;
+    font-size: clamp(1rem, 1.3vw, 1.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
   }
 
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  z-index: 5;
-  margin-bottom: 5vh;
-  transition: all 0.5s ease;
-  position: relative;
-}
+  .price-list {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-nav.floating {
-  position: fixed;
-  bottom: 3vh;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 0;
-  padding: 15px 20px;
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  background: rgba(10, 20, 35, 0.45);
-  box-shadow: 0 0 25px rgba(91, 192, 255, 0.35);
-}
+  .price-card {
+    background: rgba(20, 30, 50, 0.6);
+    border: 2px solid rgba(91,192,255,0.4);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(91,192,255,0.25);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .price-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 35px rgba(91,192,255,0.45);
+  }
+
+  .price-card h2 {
+    color: #5bc0ff;
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .price-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .price-card li {
+    font-size: 1.1rem;
+    color: #ddd;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+    color: #40a8ff;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    z-index: 1;
+    margin: 4vh 0;
+  }
 
   nav button {
     background: #5bc0ff;
     border: none;
     border-radius: 35px;
-    padding: 20px 50px;
+    padding: 15px 45px;
     color: #121212;
     font-weight: 700;
     font-size: clamp(1rem, 1.5vw, 1.5rem);
@@ -123,48 +123,50 @@ nav.floating {
     box-shadow: 0 0 30px #40a8ffcc;
     transform: scale(1.07);
   }
-
-  nav.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    padding: 15px 0;
-    backdrop-filter: blur(10px);
-    background: rgba(10, 10, 25, 0.55);
-    box-shadow: 0 0 20px rgba(91,192,255,0.4);
-  }
-
 </style>
 </head>
 <body>
 
   <canvas id="stars"></canvas>
 
-  <div class="profile-container">
-    <img src="cid kagenou.png" alt="Profile" class="profile" />
+  <h1>Price List</h1>
+  <p>Berikut daftar harga layanan editing video (contoh, bisa kamu ubah sendiri nanti):</p>
+
+  <div class="price-list">
+
+    <div class="price-card">
+      <h2>🎬 Short Video</h2>
+      <ul>
+        <li>Durasi: 15–60 detik</li>
+        <li>Editing: Fast Cut, Beat Sync, Transisi</li>
+      </ul>
+      <div class="price">Rp 100.000</div>
+    </div>
+
+    <div class="price-card">
+      <h2>📺 Long Video</h2>
+      <ul>
+        <li>Durasi: 2–10 menit</li>
+        <li>Editing: Cinematic, Color Grading</li>
+      </ul>
+      <div class="price">Rp 300.000</div>
+    </div>
+
+    <div class="price-card">
+      <h2>🎞️ EXE Style</h2>
+      <ul>
+        <li>Durasi: 30–90 detik</li>
+        <li>Editing: Masking, FX, Sync</li>
+      </ul>
+      <div class="price">Rp 150.000</div>
+    </div>
+
   </div>
 
-  <main>
-    <h1>Bangbear</h1>
-    <p>
-      Hello, I’m Bangbear — a video editor.<br />
-      I'm editing EXE-style, long-form, and short-form videos.<br />
-      I edit with Adobe Premiere Pro to make your visuals look stunning.<br />
-      I’m a small content creator and freelancer with editing skills!<br />
-      Let’s collaborate — DM me if you’re interested.<br /><br />
-      Reach me on Discord, Instagram, or TikTok:<br />
-      <b>Instagram:</b> @be4ruu<br />
-      <b>Discord:</b> bang_beart<br />
-      <b>TikTok:</b> @bearrrtoo<br /><br />
-      Thank you for visiting my website!
-    </p>
-  </main>
-
   <nav>
+    <button onclick="window.location.href='index.html'">HOME</button>
     <button onclick="window.location.href='work.html'">MY PROJECT</button>
     <button onclick="window.location.href='contact.html'">CONTACT ME</button>
-    <button onclick="window.location.href='price.html'">PRICE LIST</button> <!-- 💸 tab baru -->
   </nav>
 
   <script>
@@ -208,16 +210,18 @@ nav.floating {
         ctx.shadowColor = star.color;
         ctx.shadowBlur = 8;
         ctx.fill();
+
         star.x += star.speedX;
         star.y += star.speedY;
+
         if (star.x < 0 || star.x > canvas.width) star.speedX *= -1;
         if (star.y < 0 || star.y > canvas.height) star.speedY *= -1;
       }
 
       requestAnimationFrame(drawStars);
     }
-    drawStars();
-</script>
 
+    drawStars();
+  </script>
 </body>
 </html>
