@@ -46,22 +46,21 @@
 
   .videos {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
     width: 100%;
   }
 
   iframe {
-    width: 80%;
-    height: 400px;
+    width: 400px;
+    height: 225px;
     border-radius: 15px;
     box-shadow: 0 0 20px #5bc0ff80;
     border: none;
   }
 
-  button {
-    margin: 3rem 0;
+  #backBtn {
     background: #5bc0ff;
     border: none;
     padding: 15px 40px;
@@ -70,13 +69,21 @@
     font-size: 1.2rem;
     color: #121212;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, bottom 0.3s;
   }
 
-  button:hover {
+  #backBtn.fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+
+  #backBtn:hover {
     transform: scale(1.07);
     box-shadow: 0 0 25px #5bc0ff;
   }
+
 </style>
 </head>
 <body>
@@ -87,12 +94,12 @@
   <h1>🎬 Long Videos</h1>
 
   <div class="videos">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/rP6H6h28cj0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/7PFMpyyhBs0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/B5-ayBrMFf8" allowfullscreen></iframe>
   </div>
 
-  <button onclick="window.location.href='work.html'">⬅ Back to Projects</button>
+  <button id="backBtn" onclick="window.location.href='work.html'">⬅ Back to Projects</button>
 
   <script>
     const canvas = document.getElementById('stars');
@@ -139,6 +146,19 @@
       requestAnimationFrame(drawStars);
     }
     drawStars();
+
+    const backBtn = document.getElementById('backBtn');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.body.offsetHeight;
+
+      if (scrollY + windowHeight < docHeight - 50) {
+        backBtn.classList.add('fixed');
+      } else {
+        backBtn.classList.remove('fixed'); 
+      }
+    });
   </script>
 </body>
 </html>
